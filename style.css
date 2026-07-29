@@ -497,6 +497,181 @@ body {
     display: none;
 }
 
+/* VOD CARD */
+
+.vod-section {
+  padding: 100px 50px;
+}
+
+.vod-title {
+  text-align: center;
+  font-size: 4rem;
+  color: #fff;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.game-title {
+  color: var(--text-white);
+  font-size: 2.2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 60px 0 30px;
+  padding-left: 20px;
+  position: relative;
+  letter-spacing: 2px;
+}
+
+.game-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 35px;
+  background: var(--gradient-1);
+  border-radius: 10px;
+}
+
+.game-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-2);
+}
+
+.game-title:first-of-type {
+  margin-top: 20px;
+}
+
+.vod-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.vod-card {
+  background: var(--bg-oxford-blue-alpha-90);
+  border: 4px solid var(--border-purple-alpha-30);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: .35s;
+}
+
+.vod-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 45px rgba(133, 43, 244, 0.35);
+}
+
+.vod-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.vod-image img {
+  width: 100%;
+  height: 180px;
+  ;
+  object-fit: cover;
+  transition: .5s;
+}
+
+.vod-card:hover img {
+  transform: scale(1.08);
+}
+
+.vod-time {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #000;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+}
+
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75px;
+  height: 50px;
+  border-radius: 12px;
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2.5rem;
+  transition: .3s;
+  opacity: 0;
+}
+
+.vod-card:hover .play-btn {
+  opacity: 1;
+}
+
+.play-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.vod-content {
+  padding: 25px;
+}
+
+.vod-content h2 {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+
+.stage {
+  display: inline-block;
+  padding: 6px 15px;
+  background: var(--gradient-1);
+  color: #fff;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.vod-content p {
+  color: #d6d6d6;
+  line-height: 1.8;
+  font-size: 1.5rem;
+}
+
+@media(max-width:768px) {
+
+  .vod-title {
+    font-size: 3rem;
+  }
+
+  .vod-image img {
+    height: 200px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .game-title {
+    font-size: 2.4rem;
+    margin: 40px 0 20px;
+  }
+
+  .game-title::before {
+    height: 28px;
+  }
+}
+
 
 
 
