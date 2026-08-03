@@ -119,3 +119,26 @@ addEventOnElements(hoverElements, "mouseover", function () {
 addEventOnElements(hoverElements, "mouseout", function () {
   cursor.classList.remove("hovered");
 });
+
+// Participating Clubs
+function showGame(game, button){
+
+    document.querySelectorAll(".game-container")
+    .forEach(section=>{
+        section.classList.add("hidden");
+    });
+
+
+    document.getElementById(game)
+    .classList.remove("hidden");
+
+
+    document.querySelectorAll(".game-btn")
+    .forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+
+    button.classList.add("active");
+
+}
