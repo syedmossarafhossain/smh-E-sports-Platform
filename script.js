@@ -121,6 +121,30 @@ function showGame(game, button){
     });
 
 
+  // VIDEO
+
+const video = document.getElementById("ewcVideo");
+const section = document.querySelector(".video-section");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            video.muted = false;
+            video.play();
+        } else {
+            video.pause();
+            video.currentTime = 0; // Optional: restart when revisited
+            video.muted = true;
+        }
+    });
+}, {
+    threshold: 0.6
+});
+
+observer.observe(section);
+
+
+
     button.classList.add("active");
 
 }
