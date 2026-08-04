@@ -123,26 +123,33 @@ function showGame(game, button){
 
   // VIDEO
 
-const video = document.getElementById("ewcVideo");
-const section = document.querySelector(".video-section");
+let player;
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            video.muted = false;
-            video.play();
-        } else {
-            video.pause();
-            video.currentTime = 0; // Optional: restart when revisited
-            video.muted = true;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player("ewcVideo", {
+        events: {
+            onReady: initObserver
         }
     });
-}, {
-    threshold: 0.6
-});
+}
 
-observer.observe(section);
+function initObserver() {
+    const section = document.querySelector(".video-section");
 
-    button.classList.add("active");
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                player.unMute();
+                player.playVideo();
+            } else {
+                player.pauseVideo();
+                player.seekTo(0);
+                player.mute();
+            }
+        });
+    }, {
+        threshold: 0.6
+    });
 
+    observer.observe(section);
 }
